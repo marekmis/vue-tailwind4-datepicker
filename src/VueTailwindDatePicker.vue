@@ -958,7 +958,7 @@ function datepickerClasses(date: DatePickerDay) {
   }
   if (active) {
     classes = today
-      ? 'text-vtd-primary-500 font-semibold dark:text-vtd-primary-400 rounded-full focus:bg-vtd-primary-50 focus:text-vtd-secondary-900 focus:border-vtd-primary-300 focus:ring focus:ring-vtd-primary-500 focus:ring-opacity-10 focus:outline-none dark:bg-vtd-secondary-800 dark:text-vtd-secondary-300 dark:hover:bg-vtd-secondary-700 dark:hover:text-vtd-secondary-300 dark:focus:bg-vtd-secondary-600 dark:focus:text-vtd-secondary-100 dark:focus:border-vtd-primary-500 dark:focus:ring-opacity-25 dark:focus:bg-opacity-50'
+      ? 'text-vtd-primary-500 font-semibold dark:text-vtd-primary-400 rounded-full focus:bg-vtd-primary-50 focus:text-vtd-secondary-900 focus:border-vtd-primary-300 focus:ring-3 focus:ring-vtd-primary-500 focus:ring-opacity-10 focus:outline-hidden dark:bg-vtd-secondary-800 dark:text-vtd-secondary-300 dark:hover:bg-vtd-secondary-700 dark:hover:text-vtd-secondary-300 dark:focus:bg-vtd-secondary-600 dark:focus:text-vtd-secondary-100 dark:focus:border-vtd-primary-500 dark:focus:ring-opacity-25 dark:focus:bg-opacity-50'
       : disabled
         ? 'text-vtd-secondary-600 font-normal disabled:text-vtd-secondary-500 disabled:cursor-not-allowed rounded-full'
         : date.isBetween(s as Dayjs, e as Dayjs, 'date', '()')
@@ -1439,12 +1439,12 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
           :disabled="props.disabled" :class="[
             props.disabled ? 'cursor-default opacity-50' : 'opacity-100',
             inputClasses
-            || 'pl-3 pr-12 py-2.5 rounded-lg overflow-hidden border-solid text-sm text-vtd-secondary-700 placeholder-vtd-secondary-400 transition-colors bg-white border border-vtd-secondary-300 focus:border-vtd-primary-300 focus:ring focus:ring-vtd-primary-500 focus:ring-opacity-10 focus:outline-none dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700 dark:text-vtd-secondary-100 dark:placeholder-vtd-secondary-500 dark:focus:border-vtd-primary-500 dark:focus:ring-opacity-20',
+            || 'pl-3 pr-12 py-2.5 rounded-lg overflow-hidden border-solid text-sm text-vtd-secondary-700 placeholder-vtd-secondary-400 transition-colors bg-white border border-vtd-secondary-300 focus:border-vtd-primary-300 focus:ring-3 focus:ring-vtd-primary-500 focus:ring-opacity-10 focus:outline-hidden dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700 dark:text-vtd-secondary-100 dark:placeholder-vtd-secondary-500 dark:focus:border-vtd-primary-500 dark:focus:ring-opacity-20',
           ]" autocomplete="off" data-lpignore="true" data-form-type="other" :placeholder="givenPlaceholder"
           @keyup.stop="keyUp" @keydown.stop>
         <div class="absolute inset-y-0 right-0 inline-flex items-center rounded-md overflow-hidden">
           <button type="button" :disabled="props.disabled" :class="props.disabled ? 'cursor-default opacity-50' : 'opacity-100'
-            " class="px-2 py-1 mr-1 focus:outline-none text-vtd-secondary-400 dark:text-opacity-70 rounded-md" @click="
+            " class="px-2 py-1 mr-1 focus:outline-hidden text-vtd-secondary-400 dark:text-opacity-70 rounded-md" @click="
     props.disabled
       ? false
       : pickerValue
@@ -1473,9 +1473,9 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
         class="relative z-50">
         <div class="absolute z-50 top-full sm:mt-2.5" :class="getAbsoluteParentClass(open)">
           <div ref="VtdRef"
-            class="fixed inset-0 z-50 overflow-y-auto sm:overflow-visible sm:static sm:z-auto bg-white dark:bg-vtd-secondary-800 sm:rounded-lg shadow-sm">
+            class="fixed inset-0 z-50 overflow-y-auto sm:overflow-visible sm:static sm:z-auto bg-white dark:bg-vtd-secondary-800 sm:rounded-lg shadow-xs">
             <div
-              class="vtd-datepicker static sm:relative w-full bg-white sm:rounded-lg sm:shadow-sm border-0 sm:border border-black/[.1] px-3 py-3 sm:px-4 sm:py-4 dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700/[1]"
+              class="vtd-datepicker static sm:relative w-full bg-white sm:rounded-lg sm:shadow-xs border-0 sm:border border-black/[.1] px-3 py-3 sm:px-4 sm:py-4 dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700/[1]"
               :class="getAbsoluteClass(open)">
               <div class="flex flex-wrap lg:flex-nowrap">
                 <VtdShortcut v-if="props.shortcuts" :shortcuts="props.shortcuts" :as-range="asRange()"
@@ -1524,13 +1524,13 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
                 <div class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-vtd-secondary-700/[1]">
                   <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                     <button type="button"
-                      class="away-apply-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-vtd-primary-600 text-base font-medium text-white hover:bg-vtd-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800 disabled:cursor-not-allowed"
+                      class="away-apply-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-transparent shadow-xs px-4 py-2 bg-vtd-primary-600 text-base font-medium text-white hover:bg-vtd-primary-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800 disabled:cursor-not-allowed"
                       :disabled="props.asSingle
                         ? applyValue.length < 1
                         : applyValue.length < 2
                         " @click="applyDate(close)" v-text="props.options.footer.apply" />
                     <button type="button"
-                      class="mt-3 away-cancel-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-vtd-secondary-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-vtd-secondary-700 hover:bg-vtd-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800"
+                      class="mt-3 away-cancel-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-vtd-secondary-300 shadow-xs px-4 py-2 bg-white text-base font-medium text-vtd-secondary-700 hover:bg-vtd-secondary-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800"
                       @click="close()" v-text="props.options.footer.cancel" />
                   </div>
                 </div>
@@ -1539,7 +1539,7 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
                 <div class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-vtd-secondary-700/[1]">
                   <div class="mt-1.5 sm:flex sm:flex-row-reverse">
                     <button type="button"
-                      class="away-cancel-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-vtd-secondary-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-vtd-secondary-700 hover:bg-vtd-secondary-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800"
+                      class="away-cancel-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-vtd-secondary-300 shadow-xs px-4 py-2 bg-white text-base font-medium text-vtd-secondary-700 hover:bg-vtd-secondary-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800"
                       @click="close()" v-text="props.options.footer.cancel" />
                   </div>
                 </div>
@@ -1552,7 +1552,7 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
   </Popover>
   <div v-else-if="displayDatepicker" class="flex">
     <div
-      class="bg-white rounded-lg shadow-sm border border-black/[.1] px-3 py-3 sm:px-4 sm:py-4 dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700/[1]">
+      class="bg-white rounded-lg shadow-xs border border-black/[.1] px-3 py-3 sm:px-4 sm:py-4 dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700/[1]">
       <div class="flex flex-wrap lg:flex-nowrap">
         <VtdShortcut v-if="props.shortcuts" :shortcuts="props.shortcuts" :as-range="asRange()" :as-single="props.asSingle"
           :i18n="props.options.shortcuts" />
@@ -1597,7 +1597,7 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
         <div class="mt-2 mx-2 py-1.5 border-t border-black/[.1] dark:border-vtd-secondary-700/[1]">
           <div class="mt-1.5 sm:flex sm:flex-row-reverse">
             <button type="button"
-              class="away-apply-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-vtd-primary-600 text-base font-medium text-white hover:bg-vtd-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800 disabled:cursor-not-allowed"
+              class="away-apply-picker w-full transition ease-out duration-300 inline-flex justify-center rounded-md border border-transparent shadow-xs px-4 py-2 bg-vtd-primary-600 text-base font-medium text-white hover:bg-vtd-primary-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-vtd-primary-500 sm:ml-3 sm:w-auto sm:text-sm dark:ring-offset-vtd-secondary-800 disabled:cursor-not-allowed"
               :disabled="props.asSingle ? applyValue.length < 1 : applyValue.length < 2
                 " @click="applyDate()" v-text="props.options.footer.apply" />
           </div>
@@ -1608,6 +1608,8 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
 </template>
 
 <style>
+@reference "tailwindcss";
+
 .vtd-datepicker-overlay.open::before {
   @apply block opacity-50;
 }
@@ -1615,7 +1617,7 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
 .vtd-datepicker::before {
   --vtd-datepicker: 0px;
   content: "";
-  @apply absolute top-0 w-4 h-4 bg-white shadow border border-black/[.1] dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700;
+  @apply absolute top-0 w-4 h-4 bg-white shadow border border-black/[.1];
   transform: translate(50%, -50%) rotate(-45deg);
   clip-path: polygon(calc(var(--vtd-datepicker) * -1) calc(var(--vtd-datepicker) * -1),
       calc(100% + var(--vtd-datepicker)) calc(var(--vtd-datepicker) * -1),
@@ -1623,10 +1625,10 @@ provide(setToCustomShortcutKey, setToCustomShortcut)
 }
 
 .vtd-datepicker.place-left::before {
-  @apply left-1 dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700;
+  @apply left-1;
 }
 
 .vtd-datepicker.place-right::before {
-  @apply right-5 dark:bg-vtd-secondary-800 dark:border-vtd-secondary-700;
+  @apply right-5;
 }
 </style>
